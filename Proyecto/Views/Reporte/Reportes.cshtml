@@ -1,0 +1,73 @@
+﻿@using Proyecto.ClassAux;
+
+@{
+                /**/
+
+                ViewBag.Title = "Reportes";
+                Layout = "~/Views/Shared/_VendedorLayout.cshtml";
+
+                var obj = (ObjReporte)Model;
+}
+
+
+<section class="full-width pageContent" style="background-color: cornsilk;">
+    <section class="full-width text-center" style="padding: 40px 0;">
+
+        <h2 style="color:#2271b3" ; class="full-width text-center">Reportes</h2>
+        <br />
+        <br />
+        <form action="/Reporte/EnviarCorreo" method="post">
+            <h3 style="color:#2271b3" ; class="control-label col-sm-4">Enviar reporte por email</h3>
+            <br />
+            <input type="email" style="margin-left:1%" ; name="correo" class="form-control" placeholder="Ingrese el correo" />
+            <br />
+            <button class="btn btn-primary">Enviar</button>
+            <br />
+        </form>
+        @switch (ViewBag.alert)
+        {
+            case 1:
+                <label class="label-success">Se ha enviado el correo con éxito</label>
+                break;
+            case 2:
+                <label class="label-danger">
+                    No tienes conexión a internet o
+                    hubo un error al enviar el correo.
+                </label>
+                break;
+            default:
+                break;
+        }
+
+        <br />
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2>Monto total en soles del día</h2>
+                <h2>S/. <label value="@obj.GetGananciasDia()">@obj.GetGananciasDia()</label></h2>
+
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2>Numero de ventas Canceladas</h2>
+                <input type="text" disabled value="@obj.getVentasCanceladasDias()" />
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2>Numero de ventas Pendientes de pago</h2>
+                <input type="text" disabled value="@obj.getVentasPendientesDias()" />
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2>Numero de ventas anuladas</h2>
+                <input type="text" disabled value="@obj.getVentasAnuladasDias()" />
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,111 @@
+﻿@using Proyecto.Models;
+@using Proyecto.Session;
+@using Proyecto.ClassAux;
+@{
+
+    ViewBag.Title = "Realizar";
+    Layout = "~/Views/Shared/_VendedorLayout.cshtml";
+    var vendAct = (Vendedor)Session[SessionNameManager.Vend.VENDDATA];
+}
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<section class="full-width pageContent" style="background-color: cornsilk;">
+    <section class="full-width @*text-center*@" style="padding: 40px 0;">
+        <h2 style="color:#2271b3" ; class="full-width text-center">Realizar Venta</h2>
+
+
+        <div id="Div-ClienteOpc">
+
+            <label id="Lbl-Encontrado"></label>
+
+            <div id="Div-OpcionCliente">
+                <h3 style="color:#2271b3" ; class="control-label col-sm-2">Buscar Cliente</h3>
+            </div>
+
+
+            <div id="Div-ClienteRegis">
+                <div class="form-group">
+                    <input id="Input-BuscarCliente" style="margin-left:1%" ; type="text" class="form-control" placeholder="Busca por nombre o dni" />
+                </div>
+                <button id="Btn-BuscarClienteDni-Nom" style="margin-left:1%" ; class="btn btn-primary">Buscar</button>
+                <label id="Lbl-Encontrado2"></label>
+            </div>
+
+            <div id="Div-ClienteNoRegis" hidden>
+                <div id="Div-Form-Cont">
+
+                </div>
+            </div>
+
+        </div>
+
+        <br />
+        <br />
+        <div id="Div-Cuerpo-Venta">
+
+            <h3 style="color:#2271b3" ; class="control-label col-sm-2">Buscar producto</h3>
+            <div class="form-group">
+                <input id="Input-Busqueda" type="text" style="margin-left:1%" ; class="form-control" placeholder="Busca por nombre">
+            </div>
+            <button class="btn btn-primary" style="margin-left:1%" ; id="Btn-BuscarProducto">Buscar</button>
+
+            </br>
+            </br>
+
+            <label id="Lbl-ProductoEncontrado"> </label>
+            <label id="Lbl-NombreProducto"></label>
+
+            <div id="Div-ProductoEncontrar">
+                <label style="color:#2271b3" ; class="control-label col-sm-2">Cantidad a vender</label>
+                <label id="Lbl-MensajeProducto"></label>
+                </br>
+                </br>
+
+                <form id="Form-Add-VentaDetalle" action="/Venta/AddDetalle" method="post">
+                    <input type="text" name="IdCliente" hidden />
+                    <input type="text" name="IdProducto" hidden />
+                    <input type="text" name="IdVendedor" style="margin-left:1%" ; class="form-control" value="@vendAct.IdVendedor" hidden />
+
+                    <input type="text" name="Total" hidden />
+                    <input type="number" style="margin-left:1%" ; class="form-control" value="" min="1" max="" name="Cantidad" />
+                    <input type="text" name="precioProd" hidden />
+                    <br />
+                    <br />
+                    <label style="color:#2271b3" ; class="control-label col-sm-2">Ingrese estado de la venta</label>
+
+
+                    <select name="Estado">
+                        <option value="@EstadoVenta.CANCELADO">Cancelado(pagado)</option>
+                        <option value="@EstadoVenta.PENDIENTE">Pendiente</option>
+                    </select>
+
+
+                    <button class="btn btn-primary" style="margin-left:1%" id="Btn-AgregarDetalleVenta">Agregar</button>
+                    <br />
+                    <br />
+                </form>
+                <br />
+             
+
+            </div>
+
+            <table class="table table-hover">
+
+                <thead>
+                    <tr>
+                        <td><b>Nombre</b></td>
+                        <td><b>Cantidad</b></td>
+                        <td><b>Sub-total S./</b></td>
+                    </tr>
+                </thead>
+                <tbody id="TBodyVenta"></tbody>
+            </table>
+            <br />
+            <br />
+            <div class="full-width text-center"><button class="btn btn-primary" id="Btn-RealizarCompra">Realizar la venta</button></div>
+            <label id="Lbl-TotalGananciasVenta"></label>
+
+        </div>
+    </section>
+</section>

@@ -1,0 +1,5 @@
+D:\proyecto\Proyecto\Proyecto\TESTDIFESA\bin\Debug\TESTDIFESA.dll
+D:\proyecto\Proyecto\Proyecto\TESTDIFESA\bin\Debug\TESTDIFESA.pdb
+D:\proyecto\Proyecto\Proyecto\TESTDIFESA\obj\Debug\TESTDIFESA.csprojAssemblyReference.cache
+D:\proyecto\Proyecto\Proyecto\TESTDIFESA\obj\Debug\TESTDIFESA.dll
+D:\proyecto\Proyecto\Proyecto\TESTDIFESA\obj\Debug\TESTDIFESA.pdb

@@ -1,0 +1,61 @@
+﻿@using Proyecto.Models;
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var vend = (Vendedor)Model;
+}
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+<section class="full-width pageContent" style="background-color: cornsilk;">
+    <section class="full-width" style="padding: 40px 0;">
+
+
+        <div id="Div-Form-Vendedor">
+
+            <h3 style="color:#2271b3"; class="full-width text-center">Registrar vendedor</h3>
+
+            <form action="/Vendedor/Registrar" method="post">
+
+                <div class="md-form">
+                    <label style="color:#2271b3"; class="control-label col-sm-2" for="">Nombres</label>
+                    <input type="text" class="form-control" id="" placeholder="Ingrese nombre" value="@vend.Nombre" name="Nombre">
+                    <label class="alert-danger">@Html.ValidationMessage("Nombre")</label>
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#2271b3"; class="control-label col-sm-2" for="">Apellido Paterno</label>
+                    <input type="text" class="form-control" placeholder="Ingrese apellido paterno" name="ApPaterno" value="@vend.ApPaterno" />
+                    <label class="alert-danger">@Html.ValidationMessage("ApPaterno")</label>
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#2271b3"; class="control-label col-sm-2"for="">Apellido Materno</label>
+                    <input type="text" class="form-control" placeholder="Ingrese Apellido materno" name="ApMaterno" value="@vend.ApMaterno" />
+                    <label class="alert-danger">@Html.ValidationMessage("ApMaterno")</label>
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#2271b3"; class="control-label col-sm-2" for="">Ingrese DNI</label>
+                    <input type="text" class="form-control" id="" placeholder="DNI" value="@vend.Dni" name="Dni">
+                    <label class="alert-danger">@Html.ValidationMessage("Dni")</label>
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#2271b3"; class="control-label col-sm-2"for="">Ingrese Dirección</label>
+                    <input type="text" class="form-control" id="" placeholder="Ingrese dirección"
+                           value="@vend.Direccion" name="Direccion" />
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#2271b3"; class="control-label col-sm-2" for="">Ingrese Password</label>
+                    <input type="password" class="form-control" id="" placeholder="Pass" name="Pass">
+                    <label class="alert-danger">@Html.ValidationMessage("Pass")</label>
+                </div>
+
+                <div class="full-width text-center"><button type="submit" class="btn btn-primary">Registrar</button></div>
+            </form>
+
+        </div>
+</section>
+</section>

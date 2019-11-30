@@ -1,0 +1,62 @@
+﻿@using Proyecto.ClassAux;
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var prod = (ProductoAux)Model;
+}
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+<section class="full-width pageContent" style="background-color: cornsilk;">
+    <section class="full-width @*text-center*@" style="padding: 40px 0;">
+
+        <div id="Div-Form-Producto">
+
+            <h3 style="color:#2271b3"; class="full-width text-center" >Registrar Producto</h3>
+
+            <form action="/Producto/Registrar" method="post">
+
+                <div class="form-group">
+                    <label style="color:#2271b3" ; class="control-label col-sm-2" for="">Nombre del producto</label>
+                    <input type="text" style="margin-left:1%" ; class="form-control" id="Name" placeholder="Ingrese nombre" value="@prod.Nombre" name="Nombre">
+                    <label class="alert-danger">@Html.ValidationMessage("Nombre")</label>
+                </div>
+
+
+                <div class="form-group">
+                    <label style="color:#2271b3" ; class="control-label col-sm-2" for="">Stock</label>
+                    <input type="number" style="margin-left:1%" ; class="form-control" name="Stock" id="Stock" min="0" max="300" />
+                    <label class="alert-danger">@Html.ValidationMessage("Stock")</label>
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#2271b3" ; class="control-label col-sm-2" color="11111" for="">Precio</label>
+                    <input type="text" style="margin-left:1%" ; class="form-control" id="Price" placeholder="Ingrese Precio S./" value="@prod.Precio" name="Precio">
+                    <label class="alert-danger">@Html.ValidationMessage("Precio")</label>
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#2271b3" ; class="control-label col-sm-2" for="">Unidad de medida</label>
+                    <select name="UnidadMedida">
+                        <option value="@ProductoAux.Unidades.KILO">@ProductoAux.Unidades.KILO</option>
+                        <option value="@ProductoAux.Unidades.GALON">@ProductoAux.Unidades.GALON</option>
+                        <option value="@ProductoAux.Unidades.UNIDAD">@ProductoAux.Unidades.UNIDAD</option>
+                        <option value="@ProductoAux.Unidades.LITROS">@ProductoAux.Unidades.LITROS</option>
+                        <option value="@ProductoAux.Unidades.METRO">@ProductoAux.Unidades.METRO</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#2271b3" ; class="control-label col-sm-2"  for="">Descripción</label>
+                    <textarea class="form-control" style="margin-left:1%" ; rows="3" name="Descripcion" placeholder="Ingrese una descripción"></textarea>
+                </div>
+
+                <div class="full-width text-center"><button type="submit" class="btn btn-primary" id="SaveProduct">Registrar</button></div>
+            </form>
+
+        </div>
+
+       
+
+    </section>
+</section>

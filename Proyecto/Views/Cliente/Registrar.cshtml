@@ -1,0 +1,44 @@
+﻿@using Proyecto.Models;
+@{ 
+    var cliente = (Cliente)Model;
+    Layout = "~/Views/Shared/_VendedorLayout.cshtml";
+
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<section class="full-width pageContent" style="background-color: cornsilk;">
+    <section class="full-width @*text-center*@" style="padding: 40px 0;">
+
+        <div id="Div-Form-Cliente">
+
+        <h3 style="color:#2271b3"; class="full-width text-center"><b style="margin-left:1%">Registrar Cliente</b></h3>
+        <h3></h3>
+
+        <form id="Form-Registro-Cliente" action="/Cliente/Registrar" method="post">
+
+            <div class="form-group">
+                <label style="color:#2271b3" ; class="control-label col-sm-2" for="">Nombre</label>
+                <input type="text" style="margin-left:1%" ; class="form-control" id="Nombre" placeholder="Ingrese nombre" value="@cliente.Nombre" name="Nombre">
+                <label class="alert-danger">@Html.ValidationMessage("Nombre")</label>
+            </div>
+
+            <div class="form-group">
+                <label style="color:#2271b3" ; class="control-label col-sm-2" for="">Dirección</label>
+                <input type="text" style="margin-left:1%" ; class="form-control" id="Direccion" placeholder="Ingrese dirección" value="@cliente.Direccion" name="Direccion">
+                <label class="alert-danger">@Html.ValidationMessage("Direccion")</label>
+            </div>
+
+            <div class="form-group">
+                <label style="color:#2271b3" ; class="control-label col-sm-2" for="">DNI</label>
+                <input type="text" style="margin-left:1%" ; class="form-control" id="Dni" placeholder="Ingrese DNI" value="@cliente.Dni" name="Dni">
+                <label class="alert-danger">@Html.ValidationMessage("Dni")</label>
+            </div>
+
+            <div class="full-width text-center"><button @*id="Btn-RegistrarCliente"*@ type="submit" style="margin-left:1%" ; class="btn btn-primary" id="Enviar">Registrar</button></div>
+        </form>
+
+        </div>
+        
+
+        </section>
+</section>
+
